@@ -1,4 +1,4 @@
-# Faintly
+# Faintly v1
 
 Been wanting a writing app that just gets out of the way. Everything I tried had too many buttons, too many options, too much *stuff*. So I built this.
 
@@ -20,3 +20,5 @@ npm run tauri build
 You'll get an .exe (or .dmg, .deb, AppImage — check the releases page). Nothing else needed, it's just a standalone app.
 
 Why? Sometimes the only way to actually finish something is to stop re-reading what you already wrote.
+
+
