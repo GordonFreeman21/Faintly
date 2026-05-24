@@ -1,60 +1,30 @@
-# faintly
+# Faintly
 
-write and forget.
+A writing app where everything you type slowly fades away. No backspace. No editing what you just wrote. Just keep going.
 
-```mermaid
-flowchart LR
-    you[You type] --> text[Text appears]
-    text --> enter[Press Enter]
-    enter --> fade[Paragraph fades out]
-    fade --> next[Keep going]
-```
+Hit Enter and the paragraph starts dissolving. Write the next one. Repeat until you're done.
 
-everything you commit slowly fades into the background. no backspace, no editing old drafts - just forward motion.
+## Stack
 
-```mermaid
-flowchart TD
-    A[Open app] --> B[Start typing]
-    B --> C{Press Enter?}
-    C -->|Yes| D[Paragraph saved to history]
-    C -->|No| E[Keep writing]
-    D --> F[Paragraph starts fading]
-    F --> G[Write next one]
-```
+- React + Tailwind + TypeScript on the frontend
+- Rust + Tauri 2 for the desktop shell
+- Native save dialog (rfd) to export .md or .txt files
 
-## stack
-
-- frontend: react + tailwind + typescript
-- backend: rust + tauri 2
-- export: native save dialog, writes .md / .txt
-
-```mermaid
-flowchart LR
-    subgraph Frontend
-        RE[React] -- invoke --> TA[Tauri API]
-    end
-    subgraph Backend
-        TA --> RU[Rust command]
-        RU --> FD[rfd save dialog]
-        FD --> FS[Write file]
-    end
-```
-
-## run it
+## Run it
 
 ```bash
 npm install
 npm run tauri dev
 ```
 
-## build
+## Build
 
 ```bash
 npm run tauri build
 ```
 
-exe ends up in `src-tauri/target/release/`. no server, no cloud, no bullshit.
+Binary ends up in `src-tauri/target/release/`. No server, no cloud.
 
-## why
+## Why
 
-sometimes the only way to get words out is to not look at them again.
+Sometimes the only way to get words out is to stop looking at them.
