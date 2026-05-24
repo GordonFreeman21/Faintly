@@ -1,30 +1,22 @@
 # Faintly
 
-A writing app where everything you type slowly fades away. No backspace. No editing what you just wrote. Just keep going.
+Been wanting a writing app that just gets out of the way. Everything I tried had too many buttons, too many options, too much *stuff*. So I built this.
 
-Hit Enter and the paragraph starts dissolving. Write the next one. Repeat until you're done.
+You type. You hit Enter. The paragraph fades into the background and you write the next one. That's it. No editing old drafts, no looking back. Just forward.
 
-## Stack
-
-- React + Tailwind + TypeScript on the frontend
-- Rust + Tauri 2 for the desktop shell
-- Native save dialog (rfd) to export .md or .txt files
-
-## Run it
+Made with React and Tailwind on the front, Rust + Tauri 2 on the back.
 
 ```bash
 npm install
 npm run tauri dev
 ```
 
-## Build
+To build a release:
 
 ```bash
 npm run tauri build
 ```
 
-Binary ends up in `src-tauri/target/release/`. No server, no cloud.
+You'll get an .exe (or .dmg, .deb, AppImage — check the releases page). Nothing else needed, it's just a standalone app.
 
-## Why
-
-Sometimes the only way to get words out is to stop looking at them.
+Why? Sometimes the only way to actually finish something is to stop re-reading what you already wrote.
