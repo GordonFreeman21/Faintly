@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --max-width: 680px;
+  --fade-duration: 2.4s;
+  --blur-radius: 5px;
+  --fade-target-opacity: 0.06;
+  --font-size: 18px;
+  --line-height: 1.75;
+}
+
+@layer base {
+  body {
+    @apply m-0 p-0 overflow-hidden h-screen w-screen;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .paragraph {
+    @apply text-[#E1E1E6];
+    margin-bottom: 0.35em;
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateZ(0);
+    will-change: opacity, filter;
+    transition:
+      opacity var(--fade-duration) cubic-bezier(0.4, 0, 0.2, 1),
+      filter var(--fade-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .paragraph.fading {
+    opacity: var(--fade-target-opacity);
+    filter: blur(var(--blur-radius));
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Textarea where you actually write — grows as you type */
+  .active-input {
+    @apply min-h-[1.75em] outline-none text-[#E1E1E6];
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    caret-color: #E1E1E6;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.15);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.4);
+}

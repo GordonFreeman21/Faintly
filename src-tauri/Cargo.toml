@@ -1,0 +1,24 @@
+[package]
+name = "faintly"
+version = "1.0.0"
+description = "Distraction-Free Forward-Motion Writing App"
+authors = ["Faintly Dev Team"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+serde = { version = "1.0", features = ["derive"] }
+rfd = "0.15" # Tiny native dialog box selector (No overhead, cross-platform)
+
+[package.metadata]
+tauri-app = {}
+
+[profile.release]
+panic = "abort" # Minimal binary size payload
+codegen-units = 1
+lto = true
+opt-level = "z" # Optimize specifically for visual performance / size
