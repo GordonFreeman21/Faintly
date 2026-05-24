@@ -59,6 +59,6 @@ jobs:
           tagName: v__VERSION__
           releaseName: "Faintly v__VERSION__"
           releaseBody: "See the assets below to download and install."
-          releaseDraft: true
+          releaseDraft: false
           prerelease: false
           args: ${{ matrix.args }}
